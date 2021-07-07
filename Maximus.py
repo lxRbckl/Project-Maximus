@@ -79,7 +79,9 @@ app.layout = html.Div([
                          
                      ])
             
-        ], style = style['divDivDivStyleRight'])
+        ], style = style['divDivDivStyleRight']),
+        
+        html.Div(id = 'divId')
         
     ], style = style['divDivStyleRight'])
     
@@ -100,6 +102,35 @@ def booleanSwitchFunctionB(arg):
     '''  '''
     
     return False if (arg is True) else True
+
+
+@app.callback(Output('divId', 'children'),
+              Input('tabsId', 'value'))
+def tabsFunction(arg):
+    '''  '''
+    
+    return {'mapValue' : functionMap(),
+            'cameraValue' : functionCamera()}[arg]
+
+
+def functionMap():
+    '''  '''
+    
+    return html.Div([
+        
+        html.H1('map')
+        
+    ])
+
+
+def functionCamera():
+    '''  '''
+    
+    return html.Div([
+        
+        html.H1('camera')
+        
+    ])
 
 
 if (__name__ == '__main__'):
