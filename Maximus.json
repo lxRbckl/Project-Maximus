@@ -1,0 +1,41 @@
+{
+  "divDivStyleLeft" : {
+    "width" : "20vh",
+    "float" : "left",
+    "borderRadius" : 10,
+    "height" : "98.5vh",
+    "backgroundColor" : "#535C5F"
+  },
+  "divDivDivStyleLeft" : {
+    "margin" : 10,
+    "padding" : "40%",
+    "borderRadius" : 10,
+    "backgroundColor" : "#8A8A8A"
+  },
+  "divDivStyleRight" : {
+    "width" : "150.5vh",
+    "float" : "right",
+    "borderRadius" : 10,
+    "height" : "98.5vh",
+    "backgroundColor" : "#535C5F"
+  },
+  "tabStyle" : {
+    "padding" : 5,
+    "borderRadius" : 10,
+    "fontFamily" : "Helvetica",
+    "backgroundColor" : "#535C5F",
+    "border" : "2.5px solid #535C5F"
+  },
+  "tabSelectedStyle" : {
+    "padding" : 5,
+    "borderRadius" : 10,
+    "fontFamily" : "Helvetica",
+    "backgroundColor" : "#535C5F",
+    "border" : "2.5px solid #535C5F"
+  },
+  "divDivDivStyleRight" : {
+    "margin" : 10,
+    "borderRadius" : 10,
+    "backgroundColor" : "#8A8A8A"
+  }
+}
