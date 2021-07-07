@@ -50,6 +50,6 @@
     "border" : "2.5px solid #282828"
   },
   "graphConfig" : {
-    
+    "displayModeBar" : false
   }
 }

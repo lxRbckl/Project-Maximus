@@ -124,8 +124,10 @@ def booleanSwitchFunctionB(arg):
 def tabsFunction(arg):
     '''  '''
     
-    return {'mapValue' : functionMap(),
-            'cameraValue' : functionCamera()}[arg]
+    dictVariable = {'mapValue' : functionMap(),
+                    'cameraValue' : functionCamera()}
+    
+    return dictVariable[arg]
 
 
 def functionMap():
