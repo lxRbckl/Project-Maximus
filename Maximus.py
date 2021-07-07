@@ -21,12 +21,25 @@ app.layout = html.Div([
     
     html.Div([
         
+        html.H4('All', style = style['h4Style']),
+        
+        html.Div([
+            
+            daq.BooleanSwitch(on = False,
+                              vertical = True,
+                              disabled = False,
+                              id = 'booleanSwitchIdA')
+            
+        ], style = style['divDivDivStyleLeft']),
+        
+        html.H4('Front', style = style['h4Style']),
+        
         html.Div([
 
             daq.BooleanSwitch(on = False,
                               vertical = True,
                               disabled = False,
-                              id = 'booleanSwitchIdA')
+                              id = 'booleanSwitchIdB')
             
         ], style = style['divDivDivStyleLeft']),
 
@@ -35,16 +48,18 @@ app.layout = html.Div([
             daq.BooleanSwitch(on = False,
                               vertical = True,
                               disabled = True,
-                              id = 'booleanSwitchIdB')
+                              id = 'booleanSwitchIdC')
 
         ], style = style['divDivDivStyleLeft']),
+        
+        html.H4('Rear', style = style['h4Style']),
 
         html.Div([
 
             daq.BooleanSwitch(on = False,
                               vertical = True,
                               disabled = False,
-                              id = 'booleanSwitchIdC')
+                              id = 'booleanSwitchIdD')
 
         ], style = style['divDivDivStyleLeft']),
 
@@ -53,7 +68,7 @@ app.layout = html.Div([
             daq.BooleanSwitch(on = False,
                               vertical = True,
                               disabled = True,
-                              id = 'booleanSwitchIdD')
+                              id = 'booleanSwitchIdE')
 
         ], style = style['divDivDivStyleLeft']),
         
@@ -77,34 +92,34 @@ app.layout = html.Div([
                                  style = style['tabStyle'],
                                  selected_style = style['tabSelectedStyle'])
                          
-                     ])
-            
+                     ]),
+                        
         ], style = style['divDivDivStyleRight']),
-        
-        html.Div(id = 'divId')
-        
+
+        html.Div(id='divDivDivId')
+
     ], style = style['divDivStyleRight'])
     
 ])
 
 
-@app.callback(Output('booleanSwitchIdB', 'disabled'),
-              Input('booleanSwitchIdA', 'on'))
+@app.callback(Output('booleanSwitchIdC', 'disabled'),
+              Input('booleanSwitchIdB', 'on'))
 def booleanSwitchFunctionA(arg):
     '''  '''
     
     return False if (arg is True) else True
 
 
-@app.callback(Output('booleanSwitchIdD', 'disabled'),
-              Input('booleanSwitchIdC', 'on'))
+@app.callback(Output('booleanSwitchIdE', 'disabled'),
+              Input('booleanSwitchIdD', 'on'))
 def booleanSwitchFunctionB(arg):
     '''  '''
     
     return False if (arg is True) else True
 
 
-@app.callback(Output('divId', 'children'),
+@app.callback(Output('divDivDivId', 'children'),
               Input('tabsId', 'value'))
 def tabsFunction(arg):
     '''  '''
@@ -118,7 +133,13 @@ def functionMap():
     
     return html.Div([
         
-        html.H1('map')
+        html.Div([
+
+            dcc.Graph(id = 'graphId',
+                      style = style['graphStyle'],
+                      config = style['graphConfig'])
+            
+        ], style = style['divDivDivStyleRight'])
         
     ])
 

@@ -1,41 +1,55 @@
 {
+  "h4Style" : {
+    "fontSize" : 15,
+    "textAlign" : "Center",
+    "fontFamily" : "Helvetica"
+  },
   "divDivStyleLeft" : {
     "width" : "20vh",
     "float" : "left",
-    "borderRadius" : 10,
+    "borderRadius" : 5,
     "height" : "98.5vh",
     "backgroundColor" : "#535C5F"
   },
   "divDivDivStyleLeft" : {
     "margin" : 10,
-    "padding" : "40%",
-    "borderRadius" : 10,
+    "padding" : "25%",
+    "borderRadius" : 5,
     "backgroundColor" : "#8A8A8A"
   },
   "divDivStyleRight" : {
-    "width" : "150.5vh",
     "float" : "right",
-    "borderRadius" : 10,
+    "width" : "150.5vh",
+    "borderRadius" : 5,
     "height" : "98.5vh",
     "backgroundColor" : "#535C5F"
   },
   "tabStyle" : {
     "padding" : 5,
-    "borderRadius" : 10,
+    "borderRadius" : 5,
     "fontFamily" : "Helvetica",
     "backgroundColor" : "#535C5F",
     "border" : "2.5px solid #535C5F"
   },
   "tabSelectedStyle" : {
     "padding" : 5,
-    "borderRadius" : 10,
+    "borderRadius" : 5,
     "fontFamily" : "Helvetica",
     "backgroundColor" : "#535C5F",
     "border" : "2.5px solid #535C5F"
   },
   "divDivDivStyleRight" : {
     "margin" : 10,
-    "borderRadius" : 10,
+    "borderRadius" : 5,
     "backgroundColor" : "#8A8A8A"
+  },
+  "graphStyle" : {
+    "height" : "91.5vh",
+    "borderRadius" : 5,
+    "backgroundColor" : "#181818",
+    "border" : "2.5px solid #282828"
+  },
+  "graphConfig" : {
+    
   }
 }
