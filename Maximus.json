@@ -44,12 +44,26 @@
     "backgroundColor" : "#8A8A8A"
   },
   "graphStyle" : {
-    "height" : "91.5vh",
+    "height" : "93.5vh",
     "borderRadius" : 5,
     "backgroundColor" : "#181818",
     "border" : "2.5px solid #282828"
   },
   "graphConfig" : {
     "displayModeBar" : false
+  },
+  "layoutMargin" : {
+    "t" : 0,
+    "b" : 0,
+    "l" : 0,
+    "r" : 0
+  },
+  "layoutMapbox" : {
+    "zoom" : 5,
+    "pitch" : 30,
+    "center" : {
+      "lat" : 0,
+      "lon" : 0
+    }
   }
 }

@@ -4,6 +4,7 @@
 import dash
 from json import load
 import dash_daq as daq
+import plotly.graph_objs as go
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
@@ -14,11 +15,10 @@ with open('Maximus.json', 'r') as fileVariable:
     style = load(fileVariable)
 
 
-version = "1.000"
-app = dash.Dash()
+app = dash.Dash(suppress_callback_exceptions = True)
 server = app.server
 app.layout = html.Div([
-    
+
     html.Div([
         
         html.H4('All', style = style['h4Style']),
@@ -79,11 +79,11 @@ app.layout = html.Div([
         html.Div([
             
             dcc.Tabs(id = 'tabsId',
-                     value = 'mapValue',
+                     value = 'graphValue',
                      children = [
                          
                          dcc.Tab(label = 'Map',
-                                 value = 'mapValue',
+                                 value = 'graphValue',
                                  style = style['tabStyle'],
                                  selected_style = style['tabSelectedStyle']),
                          
@@ -123,37 +123,65 @@ def booleanSwitchFunctionB(arg):
               Input('tabsId', 'value'))
 def tabsFunction(arg):
     '''  '''
-    
-    dictVariable = {'mapValue' : functionMap(),
+
+    dictVariable = {'graphValue' : functionGraph(),
                     'cameraValue' : functionCamera()}
-    
+
     return dictVariable[arg]
 
 
-def functionMap():
+def functionGraph():
     '''  '''
-    
+
     return html.Div([
-        
+
         html.Div([
 
             dcc.Graph(id = 'graphId',
                       style = style['graphStyle'],
-                      config = style['graphConfig'])
-            
+                      config = style['graphConfig']),
+
+            dcc.Interval(id = 'intervalId')
+
         ], style = style['divDivDivStyleRight'])
-        
+
     ])
+
+
+@app.callback(Output('graphId', 'figure'),
+              Input('intervalId', 'n_intervals'))
+def intervalGraph(arg):
+    '''  '''
+
+    #global style
+    #style['layoutMapbox']['center']['lat'] += 1
+
+    # checkpoint
+    # fix redundancy above with a for loop,
+    # and a nested data structure.
+    # this segment works, we now need to build
+    # the GPS algorithm to update the variables.
+    # from there we can move to push this offline
+    # and hopefully find a dark-theme version.
+
+    return {'data' : [go.Scattermapbox()
+
+    ],
+
+    'layout' : go.Layout(
+
+        uirevision = 'foo',
+        margin = style['layoutMargin'],
+        mapbox = style['layoutMapbox'],
+        mapbox_style = 'open-street-map')
+
+    }
 
 
 def functionCamera():
     '''  '''
-    
-    return html.Div([
-        
-        html.H1('camera')
-        
-    ])
+
+    pass
 
 
 if (__name__ == '__main__'):
