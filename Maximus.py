@@ -153,16 +153,8 @@ def functionGraph():
 def intervalGraph(arg):
     '''  '''
 
-    #global style
+    # if-branch in case of failure
     #style['layoutMapbox']['center']['lat'] += 1
-
-    # checkpoint
-    # fix redundancy above with a for loop,
-    # and a nested data structure.
-    # this segment works, we now need to build
-    # the GPS algorithm to update the variables.
-    # from there we can move to push this offline
-    # and hopefully find a dark-theme version.
 
     return {'data' : [go.Scattermapbox()
 
@@ -173,7 +165,7 @@ def intervalGraph(arg):
         uirevision = 'foo',
         margin = style['layoutMargin'],
         mapbox = style['layoutMapbox'],
-        mapbox_style = 'open-street-map')
+        mapbox_style = 'carto-darkmatter')
 
     }
 

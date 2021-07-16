@@ -19,7 +19,7 @@
   },
   "divDivStyleRight" : {
     "float" : "right",
-    "width" : "150.5vh",
+    "width" : "160.5vh",
     "borderRadius" : 5,
     "height" : "98.5vh",
     "backgroundColor" : "#535C5F"
@@ -53,10 +53,10 @@
     "displayModeBar" : false
   },
   "layoutMargin" : {
-    "t" : 0,
-    "b" : 0,
-    "l" : 0,
-    "r" : 0
+    "t" : 1,
+    "b" : 1,
+    "l" : 1,
+    "r" : 1
   },
   "layoutMapbox" : {
     "zoom" : 5,
