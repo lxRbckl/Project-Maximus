@@ -43,7 +43,7 @@ app.layout = html.Div([
 
         ], style = style['divDivDivStyle']),
 
-        html.H1(''),
+        html.H1(style = {'marginBottom' : 120}),
 
         html.Div([
 
@@ -77,7 +77,7 @@ def booleanSwitchFunctionA(arg):
 @app.callback(Output('booleanSwitchIdB', 'children'),
               Input('booleanSwitchIdB', 'on'))
 def booleanSwitchFunctionB(arg):
-    ''' #GPIO.output(37, True) '''
+    '''  '''
 
     global front
 
@@ -103,7 +103,7 @@ def booleanSwitchFunctionC(arg):
 @app.callback(Output('booleanSwitchIdD', 'children'),
               Input('booleanSwitchIdD', 'on'))
 def booleanSwitchFunctionD(arg):
-    ''' #GPIO.output(38, True) '''
+    '''  '''
 
     global rear
 
