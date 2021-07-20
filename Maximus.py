@@ -20,9 +20,9 @@ app = dash.Dash()
 server = app.server
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(style['GPIO']['Accessory'], GPIO.OUT)
+GPIO.output(style['GPIO']['Accessory'], True)
 GPIO.setup(style['GPIO']['Front'], GPIO.OUT)
 GPIO.setup(style['GPIO']['Rear'], GPIO.OUT)
-GPIO.output(style['GPIO']['Rear'], True)
 app.layout = html.Div([
 
     html.Div([
@@ -84,6 +84,7 @@ def booleanSwitchFunctionB(arg):
     front = arg
     while (front):
 
+        sleep(0.25)
         GPIO.output(style['GPIO']['Front'], True)
         sleep(0.25)
         GPIO.output(style['GPIO']['Front'], False)
@@ -107,6 +108,7 @@ def booleanSwitchFunctionD(arg):
     rear = arg
     while (rear):
 
+        sleep(0.25)
         GPIO.output(style['GPIO']['Rear'], True)
         sleep(0.25)
         GPIO.output(style['GPIO']['Rear'], False)
