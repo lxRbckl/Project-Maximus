@@ -5,6 +5,7 @@ import dash
 from json import load
 from time import sleep
 import dash_daq as daq
+import RPi.GPIO as GPIO
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
