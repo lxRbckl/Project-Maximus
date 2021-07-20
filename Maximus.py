@@ -89,6 +89,8 @@ def booleanSwitchFunctionB(arg):
         sleep(0.25)
         GPIO.output(style['GPIO']['Front'], False)
 
+    GPIO.output(style['GPIO']['Rear'], False)
+
 
 @app.callback(Output('booleanSwitchIdC', 'children'),
               Input('booleanSwitchIdC', 'on'))
@@ -112,6 +114,8 @@ def booleanSwitchFunctionD(arg):
         GPIO.output(style['GPIO']['Rear'], True)
         sleep(0.25)
         GPIO.output(style['GPIO']['Rear'], False)
+
+    GPIO.output(style['GPIO']['Rear'], False)
 
 
 @app.callback(Output('booleanSwitchIdB', 'disabled'),
