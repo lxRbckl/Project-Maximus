@@ -19,7 +19,10 @@ with open('Maximus.json', 'r') as fileVariable:
 app = dash.Dash()
 server = app.server
 GPIO.setmode(GPIO.BOARD)
-[GPIO.setup(i, GPIO.OUT) for i in style['GPIO'].keys()]
+GPIO.setup(style['GPIO']['Accessory'], GPIO.OUT)
+GPIO.setup(style['GPIO']['Front'], GPIO.OUT)
+GPIO.setup(style['GPIO']['Rear'], GPIO.OUT)
+GPIO.output(style['GPIO']['Rear'], True)
 app.layout = html.Div([
 
     html.Div([
