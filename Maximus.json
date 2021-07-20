@@ -1,69 +1,19 @@
 {
-  "h4Style" : {
-    "fontSize" : 15,
-    "textAlign" : "Center",
-    "fontFamily" : "Helvetica"
+  "GPIO" : {
+    "Rear" : 37,
+    "Front" : 38,
+    "Accessory" : 40
   },
-  "divDivStyleLeft" : {
-    "width" : "20vh",
+  "divDivStyle" : {
+    "width" : 100,
     "float" : "left",
     "borderRadius" : 5,
-    "height" : "98.5vh",
     "backgroundColor" : "#535C5F"
   },
-  "divDivDivStyleLeft" : {
+  "divDivDivStyle" : {
     "margin" : 10,
     "padding" : "25%",
     "borderRadius" : 5,
     "backgroundColor" : "#8A8A8A"
-  },
-  "divDivStyleRight" : {
-    "float" : "right",
-    "width" : "160.5vh",
-    "borderRadius" : 5,
-    "height" : "98.5vh",
-    "backgroundColor" : "#535C5F"
-  },
-  "tabStyle" : {
-    "padding" : 5,
-    "borderRadius" : 5,
-    "fontFamily" : "Helvetica",
-    "backgroundColor" : "#535C5F",
-    "border" : "2.5px solid #535C5F"
-  },
-  "tabSelectedStyle" : {
-    "padding" : 5,
-    "borderRadius" : 5,
-    "fontFamily" : "Helvetica",
-    "backgroundColor" : "#535C5F",
-    "border" : "2.5px solid #535C5F"
-  },
-  "divDivDivStyleRight" : {
-    "margin" : 10,
-    "borderRadius" : 5,
-    "backgroundColor" : "#8A8A8A"
-  },
-  "graphStyle" : {
-    "height" : "93.5vh",
-    "borderRadius" : 5,
-    "backgroundColor" : "#181818",
-    "border" : "2.5px solid #282828"
-  },
-  "graphConfig" : {
-    "displayModeBar" : false
-  },
-  "layoutMargin" : {
-    "t" : 1,
-    "b" : 1,
-    "l" : 1,
-    "r" : 1
-  },
-  "layoutMapbox" : {
-    "zoom" : 5,
-    "pitch" : 30,
-    "center" : {
-      "lat" : 0,
-      "lon" : 0
-    }
   }
 }

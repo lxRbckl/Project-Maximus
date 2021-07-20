@@ -3,177 +3,125 @@
 
 import dash
 from json import load
+from time import sleep
 import dash_daq as daq
-import plotly.graph_objs as go
-import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output, State
+from dash.dependencies import Input, Output
 
 
+front, rear = False, False
 with open('Maximus.json', 'r') as fileVariable:
     
     style = load(fileVariable)
 
 
-app = dash.Dash(suppress_callback_exceptions = True)
+app = dash.Dash()
 server = app.server
+GPIO.setmode(GPIO.BOARD)
+[GPIO.setup(i, GPIO.OUT) for i in style['GPIO'].keys()]
 app.layout = html.Div([
 
     html.Div([
-        
-        html.H4('All', style = style['h4Style']),
-        
+
         html.Div([
-            
+
             daq.BooleanSwitch(on = False,
-                              vertical = True,
                               disabled = False,
                               id = 'booleanSwitchIdA')
             
-        ], style = style['divDivDivStyleLeft']),
-        
-        html.H4('Front', style = style['h4Style']),
-        
-        html.Div([
-
-            daq.BooleanSwitch(on = False,
-                              vertical = True,
-                              disabled = False,
-                              id = 'booleanSwitchIdB')
-            
-        ], style = style['divDivDivStyleLeft']),
+        ], style = style['divDivDivStyle']),
 
         html.Div([
 
             daq.BooleanSwitch(on = False,
-                              vertical = True,
                               disabled = True,
+                              id = 'booleanSwitchIdB')
+
+        ], style = style['divDivDivStyle']),
+
+        html.H1(''),
+
+        html.Div([
+
+            daq.BooleanSwitch(on = False,
+                              disabled = False,
                               id = 'booleanSwitchIdC')
 
-        ], style = style['divDivDivStyleLeft']),
-        
-        html.H4('Rear', style = style['h4Style']),
+        ], style = style['divDivDivStyle']),
 
         html.Div([
 
             daq.BooleanSwitch(on = False,
-                              vertical = True,
-                              disabled = False,
+                              disabled = True,
                               id = 'booleanSwitchIdD')
 
-        ], style = style['divDivDivStyleLeft']),
-
-        html.Div([
-
-            daq.BooleanSwitch(on = False,
-                              vertical = True,
-                              disabled = True,
-                              id = 'booleanSwitchIdE')
-
-        ], style = style['divDivDivStyleLeft']),
+        ], style = style['divDivDivStyle']),
         
-    ], style = style['divDivStyleLeft']),
-    
-    html.Div([
-        
-        html.Div([
-            
-            dcc.Tabs(id = 'tabsId',
-                     value = 'graphValue',
-                     children = [
-                         
-                         dcc.Tab(label = 'Map',
-                                 value = 'graphValue',
-                                 style = style['tabStyle'],
-                                 selected_style = style['tabSelectedStyle']),
-                         
-                         dcc.Tab(label = 'Camera',
-                                 value = 'cameraValue',
-                                 style = style['tabStyle'],
-                                 selected_style = style['tabSelectedStyle'])
-                         
-                     ]),
-                        
-        ], style = style['divDivDivStyleRight']),
+    ], style = style['divDivStyle']),
 
-        html.Div(id='divDivDivId')
-
-    ], style = style['divDivStyleRight'])
-    
 ])
 
 
-@app.callback(Output('booleanSwitchIdC', 'disabled'),
+@app.callback(Output('booleanSwitchIdA', 'children'),
+              Input('booleanSwitchIdA', 'on'))
+def booleanSwitchFunctionA(arg):
+    '''  '''
+
+    GPIO.output(style['GPIO']['Front'], arg)
+
+
+@app.callback(Output('booleanSwitchIdB', 'children'),
               Input('booleanSwitchIdB', 'on'))
+def booleanSwitchFunctionB(arg):
+    ''' #GPIO.output(37, True) '''
+
+    global front
+
+    front = arg
+    while (front):
+
+        GPIO.output(style['GPIO']['Front'], True)
+        sleep(0.25)
+        GPIO.output(style['GPIO']['Front'], False)
+
+
+@app.callback(Output('booleanSwitchIdC', 'children'),
+              Input('booleanSwitchIdC', 'on'))
+def booleanSwitchFunctionC(arg):
+    '''  '''
+
+    GPIO.output(style['GPIO']['Rear'], arg)
+
+
+@app.callback(Output('booleanSwitchIdD', 'children'),
+              Input('booleanSwitchIdD', 'on'))
+def booleanSwitchFunctionD(arg):
+    ''' #GPIO.output(38, True) '''
+
+    global rear
+
+    rear = arg
+    while (rear):
+
+        GPIO.output(style['GPIO']['Rear'], True)
+        sleep(0.25)
+        GPIO.output(style['GPIO']['Rear'], False)
+
+
+@app.callback(Output('booleanSwitchIdB', 'disabled'),
+              Input('booleanSwitchIdA', 'on'))
 def booleanSwitchFunctionA(arg):
     '''  '''
     
     return False if (arg is True) else True
 
 
-@app.callback(Output('booleanSwitchIdE', 'disabled'),
-              Input('booleanSwitchIdD', 'on'))
+@app.callback(Output('booleanSwitchIdD', 'disabled'),
+              Input('booleanSwitchIdC', 'on'))
 def booleanSwitchFunctionB(arg):
     '''  '''
     
     return False if (arg is True) else True
-
-
-@app.callback(Output('divDivDivId', 'children'),
-              Input('tabsId', 'value'))
-def tabsFunction(arg):
-    '''  '''
-
-    dictVariable = {'graphValue' : functionGraph(),
-                    'cameraValue' : functionCamera()}
-
-    return dictVariable[arg]
-
-
-def functionGraph():
-    '''  '''
-
-    return html.Div([
-
-        html.Div([
-
-            dcc.Graph(id = 'graphId',
-                      style = style['graphStyle'],
-                      config = style['graphConfig']),
-
-            dcc.Interval(id = 'intervalId')
-
-        ], style = style['divDivDivStyleRight'])
-
-    ])
-
-
-@app.callback(Output('graphId', 'figure'),
-              Input('intervalId', 'n_intervals'))
-def intervalGraph(arg):
-    '''  '''
-
-    # if-branch in case of failure
-    #style['layoutMapbox']['center']['lat'] += 1
-
-    return {'data' : [go.Scattermapbox()
-
-    ],
-
-    'layout' : go.Layout(
-
-        uirevision = 'foo',
-        margin = style['layoutMargin'],
-        mapbox = style['layoutMapbox'],
-        mapbox_style = 'carto-darkmatter')
-
-    }
-
-
-def functionCamera():
-    '''  '''
-
-    pass
 
 
 if (__name__ == '__main__'):
