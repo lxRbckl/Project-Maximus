@@ -11,6 +11,8 @@ Raspberry Pi OS
 
 ### Installation
 ```
+git clone https://github.com/lxRbckl/Project-Maximus.git
+
 cp -r /etc/xdg/lxsession ~/.config
 cd /home/pi/.config/lxsession/LDXE-pi
 nano autostart
