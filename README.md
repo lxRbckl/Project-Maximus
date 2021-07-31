@@ -14,5 +14,5 @@ cp -r /etc/xdg/lxsession ~/.config
 cd /home/pi/.config/lxsession/LDXE-pi
 nano autostart
 
-@< command >
+@
 ```
