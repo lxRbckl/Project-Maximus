@@ -1,5 +1,5 @@
 ## Project-Maximus
-> Get the live feed of a USB camera and interact with switches.
+> Get the live feed of a USB camera and interact with switches. Built for a 10.1" screen.
 
 ## Installation
 ```
