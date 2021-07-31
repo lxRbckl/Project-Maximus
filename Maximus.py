@@ -1,6 +1,7 @@
 # Project Maximus by Alex Arbuckle #
 
 
+# Import <
 import dash
 from json import load
 from time import sleep
@@ -9,13 +10,19 @@ import RPi.GPIO as GPIO
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
+# >
 
+
+# Declaration <
 front, rear = False, False
 with open('Maximus.json', 'r') as fileVariable:
     
     style = load(fileVariable)
 
+# >
 
+
+# Display <
 app = dash.Dash()
 server = app.server
 GPIO.setmode(GPIO.BOARD)
@@ -65,7 +72,10 @@ app.layout = html.Div([
 
 ])
 
+# >
 
+
+# Front Function <
 @app.callback(Output('booleanSwitchIdA', 'children'),
               Input('booleanSwitchIdA', 'on'))
 def booleanSwitchFunctionA(arg):
@@ -73,7 +83,10 @@ def booleanSwitchFunctionA(arg):
 
     GPIO.output(style['GPIO']['Front'], arg)
 
+# >
 
+
+# Emergency Front Function <
 @app.callback(Output('booleanSwitchIdB', 'children'),
               Input('booleanSwitchIdB', 'on'))
 def booleanSwitchFunctionB(arg):
@@ -91,7 +104,10 @@ def booleanSwitchFunctionB(arg):
 
     GPIO.output(style['GPIO']['Rear'], False)
 
+# >
 
+
+# Rear Function <
 @app.callback(Output('booleanSwitchIdC', 'children'),
               Input('booleanSwitchIdC', 'on'))
 def booleanSwitchFunctionC(arg):
@@ -100,6 +116,7 @@ def booleanSwitchFunctionC(arg):
     GPIO.output(style['GPIO']['Rear'], arg)
 
 
+# Emergency Rear Function <
 @app.callback(Output('booleanSwitchIdD', 'children'),
               Input('booleanSwitchIdD', 'on'))
 def booleanSwitchFunctionD(arg):
@@ -117,7 +134,10 @@ def booleanSwitchFunctionD(arg):
 
     GPIO.output(style['GPIO']['Rear'], False)
 
+# >
 
+
+# Front booleanSwitch Function <
 @app.callback(Output('booleanSwitchIdB', 'disabled'),
               Input('booleanSwitchIdA', 'on'))
 def booleanSwitchFunctionA(arg):
@@ -125,7 +145,10 @@ def booleanSwitchFunctionA(arg):
     
     return False if (arg is True) else True
 
+# >
 
+
+# Rear booleanSwitch Function <
 @app.callback(Output('booleanSwitchIdD', 'disabled'),
               Input('booleanSwitchIdC', 'on'))
 def booleanSwitchFunctionB(arg):
@@ -133,7 +156,12 @@ def booleanSwitchFunctionB(arg):
     
     return False if (arg is True) else True
 
+# >
 
+
+# Main <
 if (__name__ == '__main__'):
 
     app.run_server(debug = True)
+
+# >
