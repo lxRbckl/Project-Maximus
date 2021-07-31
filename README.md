@@ -1,6 +1,7 @@
 ## Project-Maximus
 > Get the live feed of a USB camera and interact with switches.
 
+
 ### Requirements
 ```
 Raspberry Pi 4
