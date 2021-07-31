@@ -1,5 +1,5 @@
 ## Project-Maximus
-< Control relays from a user interface.
+> 
 
 ## Installation
 ```
