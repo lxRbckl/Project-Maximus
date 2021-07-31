@@ -1,6 +1,5 @@
 ## Project-Maximus
 > Get the live feed of a USB camera and interact with switches.
-______
 
 ### Requirements
 ```
