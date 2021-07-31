@@ -4,6 +4,7 @@
 
 ### Requirements
 ```
+USB Camera
 Raspberry Pi 4
 Raspberry Pi OS
 ```
