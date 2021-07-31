@@ -1,5 +1,5 @@
 ## Project-Maximus
-> insert
+> Get the live feed of a USB camera and interact with switches.
 
 ## Installation
 ```
