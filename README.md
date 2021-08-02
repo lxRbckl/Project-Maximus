@@ -19,5 +19,8 @@ cp -r /etc/xdg/lxsession ~/.config
 cd /home/pi/.config/lxsession/LDXE-pi
 nano autostart
 
-@bash *insert*
+@bash ~/Project-Maximus/Maximus.sh
+
+crontab -e
+@reboot ~/Project-Maximus/Maximus.py
 ```
