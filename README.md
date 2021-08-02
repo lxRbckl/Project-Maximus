@@ -10,6 +10,7 @@ Raspberry Pi OS
 pip3 install RPi
 sudo apt-get -y install python3-rpi.gpio
 
+cd
 git clone https://github.com/lxRbckl/Project-Maximus.git
 
 cp -r /etc/xdg/lxsession ~/.config
