@@ -1,16 +1,12 @@
 ## Project-Maximus
 > Get the live feed of a USB camera and interact with switches.
 
-
-### Requirements
+### Installation
 ```
 USB Camera
 Raspberry Pi 4
 Raspberry Pi OS
-```
 
-### Installation
-```
 pip3 install RPi
 sudo apt-get -y install python3-rpi.gpio
 
