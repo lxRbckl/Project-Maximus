@@ -1,5 +1,5 @@
 ## Project-Maximus
-> Get the live feed of a USB camera and interact with GPIO pins with a UI.
+> Get the live feed of a USB camera and interact with GPIO pins with a dashboard UI.
 
 ### Installation
 ```
