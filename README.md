@@ -1,5 +1,5 @@
 ## Project-Maximus
-> Get the live feed of a USB camera and interact with GPIO pins with a Dash UI.
+> Get the live feed of a USB camera and interact with GPIO pins with a Dash UI. Spring 2021.
 
 ### Installation
 ```
