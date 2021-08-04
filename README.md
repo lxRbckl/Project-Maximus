@@ -3,9 +3,9 @@
 
 ### Installation
 ```
-USB Camera
-Raspberry Pi 4
-Raspberry Pi OS
+# USB Camera
+# Raspberry Pi 4
+# Raspberry Pi OS
 
 pip3 install RPi
 pip3 install dash
