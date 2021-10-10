@@ -10,6 +10,9 @@
 pip3 install RPi
 pip3 install dash
 pip3 install dash_daq
+
+sudo apt-get install wmctrl
+sudo apt-get install guvcview
 sudo apt-get -y install python3-rpi.gpio
 
 cd
